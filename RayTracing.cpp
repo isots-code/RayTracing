@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
 
+#include "color.h"
+#include "vec3.h"
+
 int main() {
 
     // Image
@@ -19,13 +22,12 @@ int main() {
             auto r = double(i) / (image_width - 1);
             auto g = double(j) / (image_height - 1);
             auto b = 0.0;
-
-            int ir = int(255.999 * r);
-            int ig = int(255.999 * g);
-            int ib = int(255.999 * b);
+            auto pix_clr = color(r, g, b);
 
             //std::cout << ir << ' ' << ig << ' ' << ib << '\n';
-            img.put(ir).put(ig).put(ib);
+            //img.put(ir).put(ig).put(ib);
+            write_color(img, pix_clr);
+
         }
     }
 
